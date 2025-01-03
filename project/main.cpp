@@ -1,5 +1,7 @@
 #include <iostream>
 #include <chrono>
+#include <cstdlib>
+#include <time.h>
 using namespace std;
 using namespace std::chrono;
 #define row 20
@@ -88,21 +90,34 @@ void help()
 void easylevel ()
 {
     auto start=high_resolution_clock::now();
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            if (i == 0 || i == row - 1 || j == 0 || j == col - 1) {
-                cout << "* ";
-            } else if (i % 2 == 1 && j % 2 == 1) {
-                cout << "|XX|";
-            } else if ((i==10 && j==11) || (i==8 && j==17)||(i==18 && j==12)) {
-                cout << "EE";
-            } else if((i==10&&j==10)||(i==10&&j==9)||(i==9&&j==12)||(i==8&&j==18)||(i==7&&j==16)||(i==7&&j==16)||(i==7&&j==18)){
-                cout << "|_-|";
+    srand(time_t(0));
+    char graound[row][col];
+    int ran;
+    
+    srand(time_t(0));
+
+    for (int i = 1; i < row; i++) {
+        for (int j = 1; j < col; j++) {
+            if (i == 1 || i == row - 1 || j == 1 || j == col - 1) {
+                cout<<" *";
             }
-            else if((i==row-2&&j==col-2))
-                cout<<"|<>|";
+            else if (i!=1&&i%2==1&& j%2==1) {
+                cout<<"xx";
+            }
+            else if (i==18&&j==17){
+                cout<<"<>";
+        }
+        else {
+            ran=(rand()%20);
+            if ((ran%100==0)){
+                graound[i][j]='E';
+                cout<<graound[i][j]<<" ";}
+            else if(ran%15==0){
+                graound[i][j]='=';
+                cout<<graound[i][j]<<" ";}
             else
                 cout<<"  ";
+            }
         }
         cout << endl;
     }
@@ -113,21 +128,34 @@ void easylevel ()
 void mediumlevel ()
 {
     auto start=high_resolution_clock::now();
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            if (i == 0 || i == row - 1 || j == 0 || j == col - 1) {
-                cout << "* ";
-            } else if (i % 2 == 1 && j % 2 == 1) {
-                cout << "|XX|";
-            } else if ((i==10 && j==11) || (i==8 && j==17)||(i==18 && j==12)||(i==16&&j==5)||(i==6&&j==11)||(i==13&&j==12)) {
-                cout << "EE";
-            } else if((i==10&&j==10)||(i==10&&j==9)||(i==9&&j==12)||(i==8&&j==18)||(i==7&&j==16)||(i==7&&j==16)||(i==7&&j==18)||(i==16&&j==3)||(i==16&&j==7)||(i==13&&j==11)||(i==12&&j==11)||(i==12&&j==9)){
-                cout << "|_-|";
+    srand(time_t(0));
+    char graound[row][col];
+    int ran;
+    
+    srand(time_t(0));
+
+    for (int i = 1; i < row; i++) {
+        for (int j = 1; j < col; j++) {
+            if (i==1||i==row-1||j==1||j==col-1) {
+                cout<<" *";
             }
-            else if((i==row-2&&j==col-2))
-                cout<<"|<>|";
+            else if (i!=1&&i%2==1&& j%2==1) {
+                cout<<"xx";
+            }
+            else if (i==18&&j==17){
+                cout<<"<>";
+        }
+        else {
+            ran=(rand()%20);
+            if ((ran%80==0)){
+                graound[i][j]='E';
+                cout<<graound[i][j]<<" ";}
+            else if(ran%7==0){
+                graound[i][j]='=';
+                cout<<graound[i][j]<<" ";}
             else
                 cout<<"  ";
+            }
         }
         cout << endl;
     }
@@ -138,21 +166,34 @@ void mediumlevel ()
 void hardlevel()
 {
     auto start=high_resolution_clock::now();
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            if (i == 0 || i == row - 1 || j == 0 || j == col - 1) {
-                cout << "* ";
-            } else if (i % 2 == 1 && j % 2 == 1) {
-                cout << "|XX|";
-            } else if ((i==10 && j==11) || (i==8 && j==17)||(i==18 && j==12)||(i==16&&j==5)||(i==6&&j==11)||(i==13&&j==12)||(i==7&&j==10)||(i==3&&j==12)||(i==5&&j==4)||(i==15&&j==18)) {
-                cout << "EE";
-            } else if((i==10&&j==10)||(i==10&&j==9)||(i==9&&j==12)||(i==8&&j==18)||(i==7&&j==16)||(i==7&&j==16)||(i==7&&j==18)||(i==16&&j==3)||(i==16&&j==7)||(i==13&&j==11)||(i==12&&j==11)||(i==12&&j==9)||(i==3&&j==14)||(i==3&&j==16)||(i==5&&j==6)||(i==5&&j==2)||(i==5&&j==8)||(i==15&&j==16)||(i==15&&j==4)||(i==15&&j==10)){
-                cout << "|_-|";
+    srand(time_t(0));
+    char graound[row][col];
+    int ran;
+    
+    srand(time_t(0));
+
+    for (int i = 1; i < row; i++) {
+        for (int j = 1; j < col; j++) {
+            if (i == 1 || i == row - 1 || j == 1 || j == col - 1) {
+                cout<<" *";
             }
-            else if((i==row-2&&j==col-2))
-                cout<<"|<>|";
+            else if (i!=1&&i%2==1&& j%2==1) {
+                cout<<"xx";
+            }
+            else if (i==18&&j==17){
+                cout<<"<>";
+        }
+        else {
+            ran=(rand()%20);
+            if ((ran%8==0)){
+                graound[i][j]='E';
+                cout<<graound[i][j]<<" ";}
+            else if(ran%3==0){
+                graound[i][j]='=';
+                cout<<graound[i][j]<<" ";}
             else
                 cout<<"  ";
+            }
         }
         cout << endl;
     }

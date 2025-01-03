@@ -245,6 +245,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = opt/homebrew/Cellar/sfml;
+				LIBRARY_SEARCH_PATHS = opt/homebrew/Cellar/sfml;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -253,6 +255,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = opt/homebrew/Cellar/sfml;
+				LIBRARY_SEARCH_PATHS = opt/homebrew/Cellar/sfml;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

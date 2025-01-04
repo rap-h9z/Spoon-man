@@ -85,10 +85,11 @@ int hardness()
 }
 void help()
 {
-    cout<<"Hi\n"<<"In this game if do you want to survive you just will need to kill the enemis with bombs "<<"\n you can move with ⮕,⬆,⬇,⬅"<<"\nor"<<"A,W,S,D"<<"\n\n\nGame maker:Raha Pazoki"<<"\nId:"<<"4021226411";
+    cout<<"Hi\n"<<"In this game if do you want to survive you just will need to kill enemis with bombs "<<"\n you can move with ⮕,⬆,⬇,⬅"<<"\nor"<<"A,W,S,D"<<"S:you"<<"\nE:your enemy"<<"\nxx:unbreakable wall"<<"\n=:cement wall"<<"B:bomb"<<"\n\n\nGame maker:Raha Pazoki"<<"\nId:"<<"4021226411";
 }
 void easylevel ()
 {
+    long int T;
     auto start=high_resolution_clock::now();
     srand(time_t(0));
     char graound[row][col];
@@ -123,10 +124,12 @@ void easylevel ()
     }
     auto end= high_resolution_clock::now();
     auto duration= duration_cast<seconds>(end-start);
-    cout<<"Time:"<<duration.count()<<endl;
+    T=duration.count();
+    cout<<"Time:"<<T<<endl;
 }
 void mediumlevel ()
 {
+    long int T;
     auto start=high_resolution_clock::now();
     srand(time_t(0));
     char graound[row][col];
@@ -161,10 +164,12 @@ void mediumlevel ()
     }
     auto end= high_resolution_clock::now();
     auto duration= duration_cast<seconds>(end-start);
-    cout<<"Time:"<<duration.count()<<endl;
+    T=duration.count();
+    cout<<"Time:"<<T<<endl;
 }
 void hardlevel()
 {
+    long int T;
     auto start=high_resolution_clock::now();
     srand(time_t(0));
     char graound[row][col];
@@ -199,6 +204,10 @@ void hardlevel()
     }
     auto end= high_resolution_clock::now();
     auto duration= duration_cast<seconds>(end-start);
-    cout<<"Time:"<<duration.count()<<endl;
+    T=duration.count();
+    cout<<"Time:"<<T<<endl;
 }
-
+void player (int x,int y)
+{
+    
+}

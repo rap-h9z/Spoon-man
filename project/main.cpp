@@ -26,6 +26,7 @@ int main()
     void mediumgame();
     void hardgame();
     void menu();
+    void space();
     
     string s="Welcome to the Spoon Man game";
     for (int i=0; i<30; ++i) {
@@ -42,12 +43,23 @@ double point( score m, score cb, score t,const int wm,const int wt,const int wb)
     s=1000/(1+(m.movements*wm)+(cb.countB*wb)+(t.time*wt));
     return s;
 }
+void space()
+{
+    for (int i=0; i<21; ++i) {
+        cout<<endl;
+    }
+}
+void spacemenu()
+{
+    for(int j=0;j<42;++j)
+        cout<<endl;
+}
 int hardness()
 {
     int ans;
     string k="\n\n1.easy\n2.medium\n3.Hard\n4.menu\n";
     for (int i=0; i<33; ++i) {
-        usleep(200000);
+        usleep(100000);
         cout<<k[i];
     }
     cin>>ans;
@@ -60,6 +72,7 @@ void help()
         usleep(100000);
         cout<<i[k];
     }
+    usleep(5000000);
 }
 void easyplayground (char ground[row][col],int x,int y)
 {
@@ -145,34 +158,45 @@ void easygame()
     int count=0;
     int countB=0;
     auto start=high_resolution_clock::now();
+    space();
     easyplayground(ground,x,y);
     while (x!=18||y!=17) {
-        cout<<"Go..."<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+        cout<<"EASY LEVEL\nmove...";
         cin>>ans;
         switch (ans) {
             case 'w':
                 --x;
+                space();
                 ground[x][y]='S';
                 easyplayground(ground,x,y);
+                space();
                 break;
             case 's':
                 ++x;
+                space();
                 ground[x][y]='S';
                 easyplayground(ground, x,y);
+                space();
                 break;
             case 'a':
                 --y;
+                space();
                 ground[x][y]='S';
                 easyplayground(ground,x,y);
+                space();
                 break;
             case 'd':
                 ++y;
+                space();
                 ground[x][y]='S';
                 easyplayground(ground,x,y);
+                space();
                 break;
             case 'b':
+                space();
                 easyB(ground,x,y);
                 ++countB;
+                space();
                 break;
             case 'q':
                 string k="Game over";
@@ -181,6 +205,7 @@ void easygame()
                     cout<<k[j];
                 }
                 sleep(2);
+                spacemenu();
                 menu();
                 break;
         }
@@ -283,34 +308,45 @@ void mediumgame()
     int count=0;
     int countB=0;
     auto start=high_resolution_clock::now();
+    space();
     mediumplayground(ground,x,y);
     while (x!=18||y!=17){
-        cout<<"Go..."<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+        cout<<"MEDIUM LEVEL\nmove...";
         cin>>ans;
         switch (ans) {
             case 'w':
                 --x;
+                space();
                 ground[x][y]='S';
                 mediumplayground(ground,x,y);
+                space();
                 break;
             case 's':
                 ++x;
+                space();
                 ground[x][y]='S';
                 mediumplayground(ground, x,y);
+                space();
                 break;
             case 'a':
                 --y;
+                space();
                 ground[x][y]='S';
                 mediumplayground(ground,x,y);
+                space();
                 break;
             case 'd':
                 ++y;
+                space();
                 ground[x][y]='S';
                 mediumplayground(ground,x,y);
+                space();
                 break;
             case 'b':
+                space();
                 mediumB(ground,x,y);
                 ++countB;
+                space();
                 break;
             case 'q':
                 string k="Game over";
@@ -319,6 +355,7 @@ void mediumgame()
                     cout<<k[j];
                 }
                 sleep(2);
+                spacemenu();
                 menu();
                 break;
         }
@@ -420,42 +457,54 @@ void hardgame()
     int count=0;
     int countB=0;
     auto start=high_resolution_clock::now();
+    space();
     hardplayground(ground,x,y);
     while (x!=18||y!=17){
-        cout<<"Go..."<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+        cout<<"HARD LEVEL\nmove...";
         cin>>ans;
         switch (ans) {
             case 'w':
                 --x;
+                space();
                 ground[x][y]='S';
                 hardplayground(ground,x,y);
+                space();
                 break;
             case 's':
                 ++x;
+                space();
                 ground[x][y]='S';
                 hardplayground(ground, x,y);
+                space();
                 break;
             case 'a':
                 --y;
+                space();
                 ground[x][y]='S';
                 hardplayground(ground,x,y);
+                space();
                 break;
             case 'd':
                 ++y;
+                space();
                 ground[x][y]='S';
                 hardplayground(ground,x,y);
+                space();
                 break;
             case 'b':
+                space();
                 hardB(ground,x,y);
                 ++countB;
+                space();
                 break;
             case 'q':
                 string k="Game over";
-                for (int j=0; j<8; ++j) {
+                for (int j=0; j<9; ++j) {
                     usleep(200000);
                     cout<<k[j];
                 }
-                sleep(2);
+                sleep(1);
+                spacemenu();
                 menu();
                 break;
         }
@@ -471,6 +520,7 @@ void hardgame()
     }
     cout<<point(m, cb, t, wm, wt, wb);
 }
+
 void menu()
 {
     int ans;
@@ -485,8 +535,10 @@ void menu()
             easygame();
             break;
         case 2:
+            spacemenu();
             switch (hardness()) {
                 case 1:
+                    spacemenu();
                     cout<<"\n\n1.start\n2.menu";
                     cin>>ans;
                     switch (ans) {
@@ -494,11 +546,18 @@ void menu()
                             easygame();
                             break;
                         case 2:
+                            spacemenu();
+                            menu();
+                            break;
+                        default:
+                            cout<<"unknown";
+                            spacemenu();
                             menu();
                             break;
                     }
                     break;
                 case 2:
+                    spacemenu();
                     cout<<"\n\n1.start\n2.menu";
                     cin>>ans;
                     switch (ans) {
@@ -506,10 +565,18 @@ void menu()
                             mediumgame();
                             break;
                         case 2:
+                            spacemenu();
+                            menu();
+                            break;
+                        default:
+                            cout<<"unknown";
+                            spacemenu();
                             menu();
                             break;
                     }
+                    break;
                 case 3:
+                    spacemenu();
                     cout<<"\n\n1.start\n2.menu";
                     cin>>ans;
                     switch (ans) {
@@ -517,20 +584,39 @@ void menu()
                             hardgame();
                             break;
                         case 2:
+                            spacemenu();
+                            menu();
+                            break;
+                        default:
+                            cout<<"unknown";
+                            spacemenu();
                             menu();
                             break;
                     }
                     break;
                 case 4:
+                    spacemenu();
+                    menu();
+                    break;
+                default:
+                    cout<<"unknown";
+                    spacemenu();
                     menu();
                     break;
             }
             break;
         case 3:
+            spacemenu();
             help();
+            spacemenu();
             menu();
             break;
         case 4:
+            break;
+        default:
+            cout<<"unknown";
+            spacemenu();
+            menu();
             break;
     }
 }

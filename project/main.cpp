@@ -574,7 +574,6 @@ void menu() {
                         default:
                             cout << "Unknown\n";
                             spacemenu();
-                            menu();
                             break;
                     }
                     break;
@@ -657,8 +656,29 @@ void menu() {
         case 3:
             spacemenu();
             help();
-            spacemenu();
-            menu();
+            cout<<"\n\n1.Back to menu\n";
+            while (true) {
+                cin >> ans;
+                if (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Please enter a number.\n";
+                } else {
+                    break;
+                }
+            }
+            switch (ans) {
+                case 1:
+                    spacemenu();
+                    menu();
+                    break;
+                    
+                default:
+                    cout<<"unknown";
+                    spacemenu();
+                    menu();
+                    break;
+            }
             break;
 
         case 4:

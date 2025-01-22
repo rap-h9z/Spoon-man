@@ -1,7 +1,7 @@
 #include <iostream>
 #include <chrono>
-#include <cstdlib>
 #include <time.h>
+#include <cstdlib>
 #include <unistd.h>
 using namespace std;
 using namespace std::chrono;
@@ -244,10 +244,10 @@ void mediumplayground (char ground[row][col],int x,int y)
                 cout<<" "<<ground[x][y];
             else {
                 ran=(rand()%20);
-                if ((ran%50==0)){
+                if ((ran%20==0)){
                     ground[i][j]='E';
                     cout<<ground[i][j]<<" ";}
-                else if(ran%7==0){
+                else if(ran%3==0){
                     ground[i][j]='=';
                     cout<<ground[i][j]<<" ";}
                 else
@@ -284,10 +284,10 @@ void mediumB (char ground[row][col],int x,int y)
             }
             else {
                 ran=(rand()%20);
-                if ((ran%50==0)){
+                if ((ran%20==0)){
                     ground[i][j]='E';
                     cout<<ground[i][j]<<" ";}
-                else if(ran%7==0){
+                else if(ran%3==0){
                     ground[i][j]='=';
                     cout<<ground[i][j]<<" ";}
                 else
@@ -521,26 +521,48 @@ void hardgame()
     cout<<point(m, cb, t, wm, wt, wb);
 }
 
-void menu()
-{
+void menu() {
     int ans;
-    string t="\n\n1.Start\n2.Hardness level\n3.Help\n4.Exit\n";
-    for (int j=0; j<41; ++j) {
+    string t = "\n\n1.Start\n2.Hardness level\n3.Help\n4.Exit\n";
+
+    for (int j = 0; j < 41; ++j) {
         usleep(100000);
-        cout<<t[j];
+        cout << t[j];
     }
-    cin>>ans;
+    while (true) {
+        cin >> ans;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Please enter a number.\n";
+        } else {
+            break;
+        }
+    }
+
     switch (ans) {
         case 1:
             easygame();
             break;
+
         case 2:
             spacemenu();
             switch (hardness()) {
                 case 1:
                     spacemenu();
-                    cout<<"\n\n1.start\n2.menu";
-                    cin>>ans;
+                    cout << "\n\n1.Start\n2.Menu";
+
+                    while (true) {
+                        cin >> ans;
+                        if (cin.fail()) {
+                            cin.clear();
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cout << "Please enter a number.\n";
+                        } else {
+                            break;
+                        }
+                    }
+
                     switch (ans) {
                         case 1:
                             easygame();
@@ -550,16 +572,28 @@ void menu()
                             menu();
                             break;
                         default:
-                            cout<<"unknown";
+                            cout << "Unknown\n";
                             spacemenu();
                             menu();
                             break;
                     }
                     break;
+
                 case 2:
                     spacemenu();
-                    cout<<"\n\n1.start\n2.menu";
-                    cin>>ans;
+                    cout << "\n\n1.Start\n2.Menu";
+
+                    while (true) {
+                        cin >> ans;
+                        if (cin.fail()) {
+                            cin.clear();
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cout << "Please enter a number.\n";
+                        } else {
+                            break;
+                        }
+                    }
+
                     switch (ans) {
                         case 1:
                             mediumgame();
@@ -569,16 +603,28 @@ void menu()
                             menu();
                             break;
                         default:
-                            cout<<"unknown";
+                            cout << "Unknown\n";
                             spacemenu();
                             menu();
                             break;
                     }
                     break;
+
                 case 3:
                     spacemenu();
-                    cout<<"\n\n1.start\n2.menu";
-                    cin>>ans;
+                    cout << "\n\n1.Start\n2.Menu";
+
+                    while (true) {
+                        cin >> ans;
+                        if (cin.fail()) {
+                            cin.clear();
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cout << "Please enter a number.\n";
+                        } else {
+                            break;
+                        }
+                    }
+
                     switch (ans) {
                         case 1:
                             hardgame();
@@ -588,33 +634,38 @@ void menu()
                             menu();
                             break;
                         default:
-                            cout<<"unknown";
+                            cout << "Unknown\n";
                             spacemenu();
                             menu();
                             break;
                     }
                     break;
+
                 case 4:
                     spacemenu();
                     menu();
                     break;
+
                 default:
-                    cout<<"unknown";
+                    cout << "Unknown\n";
                     spacemenu();
                     menu();
                     break;
             }
             break;
+
         case 3:
             spacemenu();
             help();
             spacemenu();
             menu();
             break;
+
         case 4:
             break;
+
         default:
-            cout<<"unknown";
+            cout << "Unknown\n";
             spacemenu();
             menu();
             break;
